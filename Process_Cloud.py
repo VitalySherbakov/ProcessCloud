@@ -48,6 +48,47 @@ class WIFI_Cloud:
 	def CreatDir(dirnew):
 		if os.path.exists(dirnew)==False:
 			os.mkdir(dirnew)
+	def RunProcess2(dir_hc=WIFI_Init(),reng_two=WIFI_Three()):
+		#-------------------Иницилизация---------------------
+		selectfilespath,dir_wifi="",""
+		url_convert="https://hashcat.net/cap2hashcat/"
+		#Словари Папка
+		dirs = os.listdir(dir_hc.DirHomeHC22000)
+		  filesdicts = os.listdir(dir_hc.DirHomeDicts)
+		  print(f"--------Словари {dir_hc.DirHomeDicts}-------")
+		  for i,li in enumerate(filesdicts):
+		    print(f"Номер: {i}|Словарь: {li}")
+		  print(f"-------{dir_hc.DirHomeDicts}--------")
+		  for i,li in enumerate(dirs):
+		    print(f"Номер: {i}|Папка: {li}")
+		  print("---------------")
+		  #-------Этапы 3--------
+		  three_mass=["",
+		              "",
+		              ""]
+		  three_rang=reng_two.Three.split("-")
+		  for i,di in enumerate(dir_hc.DictsProces):
+		    if(i<reng_two.One):
+		      three_mass[0]+=f"{di} "
+		    if(i==reng_two.One):
+		      three_mass[0]+=f"{di}"
+		    if(i>reng_two.One and i<reng_two.Two):
+		      three_mass[1]+=f"{di} "
+		    if(i>reng_two.One and i==reng_two.Two):
+		      three_mass[1]+=f"{di}"
+		    if(i>reng_two.Two and i<len(dir_hc.DictsProces)-1):
+		      three_mass[2]+=f"{di} "
+		    if(i==len(dir_hc.DictsProces)-1):
+		      three_mass[2]+=f"{di}"
+		  #-------Этапы Единий-----
+		  one_string_dicts=""
+		  for i,di in enumerate(dir_hc.DictsProces):
+		    if(i<len(dir_hc.DictsProces)-1):
+		      one_string_dicts+=f"{di} "
+		    if(i==len(dir_hc.DictsProces)-1):
+		      one_string_dicts+=f"{di}"
+		  #----------------------------------------------------
+		  indexspeed=dir_hc.Speed
 	def RunProcess(dir_hc=WIFI_Init(),reng_two=WIFI_Three()):
 		#-------------------Иницилизация---------------------
 		selectfilespath,dir_wifi="",""
@@ -122,7 +163,7 @@ class WIFI_Cloud:
 		      print(f"Папка Сеть WIFI: {dir_wifi}")
 		      print(f"Файл WIFI: {selectfilespath}")
 		      input(f"Запустить Процес........................")
-		      !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {one_string_dicts}
+		      return f"!hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {one_string_dicts}"
 		      print("---------------Конец Работы Единого в Одном---------------")
 		      input(".............................................................")
 		    if(index_etap_select==2):
@@ -136,19 +177,19 @@ class WIFI_Cloud:
 		        if(index_pod_etap_select==1):
 		          input(f"Запустить Этап 1({index_pod_etap_select}) Процес........................")
 		          # Перебор по Словарей (Этап 1)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {three_mass[0]}
+		          return f"!hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {three_mass[0]}"
 		          print(f"---------------Конец Работы Этапа 1({index_pod_etap_select})---------------")
 		          input(".............................................................")
 		        if(index_pod_etap_select==2):
 		          input(f"Запустить Этап 2 Процес........................")
 		          # Перебор по Словарей (Этап 2)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {three_mass[1]}
+		          return f"!hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {three_mass[1]}"
 		          print(f"---------------Конец Работы Этапа 2({index_pod_etap_select})---------------")
 		          input(".............................................................")
 		        if(index_pod_etap_select==3):
 		          input(f"Запустить Этап 3({index_pod_etap_select}) Процес........................")
 		          # Перебор по Словарей (Этап 3)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {three_mass[2]}
+		          return f"!hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {three_mass[2]}"
 		          print(f"---------------Конец Работы Этапа 3({index_pod_etap_select})---------------")
 		          input(".............................................................")
 		        else:
@@ -165,121 +206,15 @@ class WIFI_Cloud:
 		      print(f"Файл WIFI: {selectfilespath}")
 		      pod_etap_select2=input("Выбрать 1-19 Этапов: ")
 		      index_pod_etap_select2=int(pod_etap_select2)
-		      if(index_pod_etap_select2<20):
-		        if(index_pod_etap_select2==1):
-		          input(f"Запустить Этап 1({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[0]}
-		          print(f"---------------Конец Работы Этапа {index_pod_etap_select2}---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==2):
-		          input(f"Запустить Этап 1_1({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_1)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[1]}
-		          print(f"---------------Конец Работы Этапа 1_1({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==3):
-		          input(f"Запустить Этап 1_2({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_2)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[2]}
-		          print(f"---------------Конец Работы Этапа 1_2({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==4):
-		          input(f"Запустить Этап 1_3({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_3)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[3]}
-		          print(f"---------------Конец Работы Этапа 1_3({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==5):
-		          input(f"Запустить Этап 1_4({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_4)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[4]}
-		          print(f"---------------Конец Работы Этапа 1_4({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==6):
-		          input(f"Запустить Этап 1_5({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_5)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[5]}
-		          print(f"---------------Конец Работы Этапа 1_5({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==7):
-		          input(f"Запустить Этап 1_6({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_6)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[6]}
-		          print(f"---------------Конец Работы Этапа 1_6({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==8):
-		          input(f"Запустить Этап 1_7({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 1_7)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[7]}
-		          print(f"---------------Конец Работы Этапа 1_7({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==9):
-		          input(f"Запустить Этап 2({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 2)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[8]}
-		          print(f"---------------Конец Работы Этапа 2({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==10):
-		          input(f"Запустить Этап 2_1({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 2_1)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[9]}
-		          print(f"---------------Конец Работы Этапа 2_1({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==11):
-		          input(f"Запустить Этап 2_2 Процес({index_pod_etap_select2})........................")
-		          # Перебор по Словарей (Этап 2_2)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[10]}
-		          print(f"---------------Конец Работы Этапа 2_2({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==12):
-		          input(f"Запустить Этап 2_3({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 2_3)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[11]}
-		          print(f"---------------Конец Работы Этапа 2_3({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==13):
-		          input(f"Запустить Этап 2_4({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 2_4)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[12]}
-		          print(f"---------------Конец Работы Этапа 2_4({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==14):
-		          input(f"Запустить Этап 3({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 3)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[13]}
-		          print(f"---------------Конец Работы Этапа 3({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==15):
-		          input(f"Запустить Этап 3_1({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 3_1)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[14]}
-		          print(f"---------------Конец Работы Этапа 3_1({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==16):
-		          input(f"Запустить Этап 3_2({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 3_2)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[15]}
-		          print(f"---------------Конец Работы Этапа 3_2({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==17):
-		          input(f"Запустить Этап 3_3({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 3_3)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[16]}
-		          print(f"---------------Конец Работы Этапа 3_3({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==18):
-		          input(f"Запустить Этап 3_4({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 3_4)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[17]}
-		          print(f"---------------Конец Работы Этапа 3_4({index_pod_etap_select2})---------------")
-		          input(".............................................................")
-		        if(index_pod_etap_select2==19):
-		          input(f"Запустить Этап 3_5({index_pod_etap_select2}) Процес........................")
-		          # Перебор по Словарей (Этап 3_5)
-		          !hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {mono_mass[18]}
-		          print(f"---------------Конец Работы Этапа 3_5({index_pod_etap_select2})---------------")
-		          input(".............................................................")
+		      if(index_pod_etap_select2<len(dir_hc.DictsProces)):
+		      	for i2,li2 in enumerate(dir_hc.DictsProces):
+		      		print(li)
+		      		input(".............................................................")
+                    #if(i2==index_pod_etap_select2):
+			          # input(f"Запустить Этап ({index_pod_etap_select2}) Процес........................")
+			          # # Перебор по Словарей (Этап)
+			          # return f"!hashcat -m 22000 -a 0 -w {speed} {selectfilespath} {dir_hc.DictsProces[i]}"
+			          # print(f"---------------Конец Работы Этапа {index_pod_etap_select2}---------------")
 		      else:
 		        print(f"Вы выбрали {index_pod_etap_select2}, за границы доступности 19")
 		        input(".............................................................")

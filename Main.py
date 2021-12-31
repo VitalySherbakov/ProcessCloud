@@ -38,5 +38,5 @@ test2=WIFI_Three()
 test2.One=7
 test2.Two=12
 
-res2=WIFI_Cloud.RunProcess(test,test2)
+res2=WIFI_Cloud.RunProcess2(test,test2)
 print(res2)
