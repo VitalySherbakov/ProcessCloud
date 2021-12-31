@@ -54,32 +54,32 @@ class WIFI_Cloud:
 		url_convert="https://hashcat.net/cap2hashcat/"
 		#Словари Папка
 		dirs = os.listdir(dir_hc.DirHomeHC22000)
-		  filesdicts = os.listdir(dir_hc.DirHomeDicts)
-		  print(f"--------Словари {dir_hc.DirHomeDicts}-------")
-		  for i,li in enumerate(filesdicts):
-		    print(f"Номер: {i}|Словарь: {li}")
-		  print(f"-------{dir_hc.DirHomeDicts}--------")
-		  for i,li in enumerate(dirs):
-		    print(f"Номер: {i}|Папка: {li}")
-		  print("---------------")
-		  #-------Этапы 3--------
-		  three_mass=["",
-		              "",
-		              ""]
-		  three_rang=reng_two.Three.split("-")
-		  for i,di in enumerate(dir_hc.DictsProces):
-		    if(i<reng_two.One):
-		      three_mass[0]+=f"{di} "
-		    if(i==reng_two.One):
-		      three_mass[0]+=f"{di}"
-		    if(i>reng_two.One and i<reng_two.Two):
-		      three_mass[1]+=f"{di} "
-		    if(i>reng_two.One and i==reng_two.Two):
-		      three_mass[1]+=f"{di}"
-		    if(i>reng_two.Two and i<len(dir_hc.DictsProces)-1):
-		      three_mass[2]+=f"{di} "
-		    if(i==len(dir_hc.DictsProces)-1):
-		      three_mass[2]+=f"{di}"
+		filesdicts = os.listdir(dir_hc.DirHomeDicts)
+		print(f"--------Словари {dir_hc.DirHomeDicts}-------")
+		for i,li in enumerate(filesdicts):
+		  print(f"Номер: {i}|Словарь: {li}")
+		print(f"-------{dir_hc.DirHomeDicts}--------")
+		for i,li in enumerate(dirs):
+		  print(f"Номер: {i}|Папка: {li}")
+		print("---------------")
+		#-------Этапы 3--------
+		three_mass=["",
+		            "",
+		            ""]
+		three_rang=reng_two.Three.split("-")
+		for i,di in enumerate(dir_hc.DictsProces):
+		  if(i<reng_two.One):
+		    three_mass[0]+=f"{di} "
+		  if(i==reng_two.One):
+		    three_mass[0]+=f"{di}"
+		  if(i>reng_two.One and i<reng_two.Two):
+		    three_mass[1]+=f"{di} "
+		  if(i>reng_two.One and i==reng_two.Two):
+		    three_mass[1]+=f"{di}"
+		  if(i>reng_two.Two and i<len(dir_hc.DictsProces)-1):
+		    three_mass[2]+=f"{di} "
+		  if(i==len(dir_hc.DictsProces)-1):
+		    three_mass[2]+=f"{di}"
 		  #-------Этапы Единий-----
 		  one_string_dicts=""
 		  for i,di in enumerate(dir_hc.DictsProces):
