@@ -46,7 +46,7 @@ class WIFI_Cloud:
 	def GoogleDisk2_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей zip"""
 		command=""
-		for li in dir_hc.GoogleDisk2:
+		for i,li in enumerate(dir_hc.GoogleDisk2):
 			if(i<len(dir_hc.GoogleDisk2)-1):
 				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk2)-1):
@@ -55,7 +55,7 @@ class WIFI_Cloud:
 	def GoogleDisk3_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Третий Пакета Словарей zip"""
 		command=""
-		for li in dir_hc.GoogleDisk3:
+		for i,li in enumerate(dir_hc.GoogleDisk3):
 			if(i<len(dir_hc.GoogleDisk3)-1):
 				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk3)-1):
