@@ -126,6 +126,7 @@ class WIFI_Cloud:
 						selectfilespath=f"{pathdir}/{files[0]}"
 					else:
 						print(f"Нету Сконвентированого файла {url_convert} из формата *.cap в *.hc22000")
+						exit()
 			print(f"Файл Перебора: {selectfilespath}")
 			print(f"-----------------Выбор Метода 1-Полный 2-Тройной 3-Кусками-----------------")
 			etap_select=input("Выбор Метода: ")
