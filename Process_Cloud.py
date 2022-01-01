@@ -126,7 +126,7 @@ class WIFI_Cloud:
 						selectfilespath=f"{pathdir}/{files[0]}"
 					else:
 						print(f"Нету Сконвентированого файла {url_convert} из формата *.cap в *.hc22000")
-						exit()
+						quit()
 			print(f"Файл Перебора: {selectfilespath}")
 			print(f"-----------------Выбор Метода 1-Полный 2-Тройной 3-Кусками-----------------")
 			etap_select=input("Выбор Метода: ")
@@ -170,7 +170,7 @@ class WIFI_Cloud:
 								input(f"Запустить Этап ({index_pod_etap_select2}) Процес........................")
 								return f"-m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {dir_hc.DictsProces[i2]}"
 					else:
-						print(f"Вы выбрали {index_pod_etap_select2}, за границы доступности 19")
+						print(f"Вы выбрали {index_pod_etap_select2}, за границы доступности {len(dir_hc.DictsProces)}")
 			else:
 				print(f"Вы выбрали {index_etap_select} Метод вышло за приделы 1-3")
 		except Exception as ex:
