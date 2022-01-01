@@ -23,7 +23,7 @@ class WIFI_Cloud:
 	def LibInit():
 		"""Иницилизациия Библиотек"""
 		github="https://github.com/VitalySherbakov/HashcatCloud.git"
-		com=f"install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcat && git submodule update --init && make && make install"
+		com=f"!apt install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcat && git submodule update --init && make && make install"
 		return com
 	def DirInit(dir_hc=WIFI_Init()):
 		"""Иницилизация создание необходимых директорий"""
@@ -39,6 +39,7 @@ class WIFI_Cloud:
 		command=""
 		for li in dir_hc.GoogleDisk1:
 			command+=f"!unzip {li}.zip -d {dir_hc.DirHomeDicts}\n"
+			!unzip {f" {li}.zip -d {dir_hc.DirHomeDicts}\n"}
 		return command
 	def GoogleDisk2_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей zip"""
