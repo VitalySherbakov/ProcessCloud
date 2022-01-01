@@ -38,19 +38,19 @@ class WIFI_Cloud:
 		"""Распаковка Первого Пакета Словарей zip"""
 		command=""
 		for li in dir_hc.GoogleDisk1:
-			command+=f"!unzip {li}.zip -d {dir_hc.DirHomeDicts}\n"
+			command+=f"{li}.zip -d {dir_hc.DirHomeDicts}\n"
 		return command
 	def GoogleDisk2_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей zip"""
 		command=""
 		for li in dir_hc.GoogleDisk2:
-			command+=f"!unzip {li}.zip -d {dir_hc.DirHomeDicts}\n"
+			command+=f"{li}.zip -d {dir_hc.DirHomeDicts}\n"
 		return command
 	def GoogleDisk3_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Третий Пакета Словарей zip"""
 		command=""
 		for li in dir_hc.GoogleDisk3:
-			command+=f"!unzip {li}.zip -d {dir_hc.DirHomeDicts}\n"
+			command+=f"{li}.zip -d {dir_hc.DirHomeDicts}\n"
 		return command
 	def CreatDir(dirnew):
 		"""Создать Директорию"""
