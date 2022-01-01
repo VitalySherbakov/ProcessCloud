@@ -23,7 +23,7 @@ class WIFI_Cloud:
 	def LibInit():
 		"""Иницилизациия Библиотек"""
 		github="https://github.com/VitalySherbakov/HashcatCloud.git"
-		com=f"!apt install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcat && git submodule update --init && make && make install"
+		com=f"install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcat && git submodule update --init && make && make install"
 		return com
 	def DirInit(dir_hc=WIFI_Init()):
 		"""Иницилизация создание необходимых директорий"""
@@ -37,21 +37,29 @@ class WIFI_Cloud:
 	def GoogleDisk1_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Первого Пакета Словарей zip"""
 		command=""
-		for li in dir_hc.GoogleDisk1:
-			command+=f"!unzip {li}.zip -d {dir_hc.DirHomeDicts}\n"
-			!unzip {f" {li}.zip -d {dir_hc.DirHomeDicts}\n"}
+		for i,li in enumerate(dir_hc.GoogleDisk1):
+			if(i<len(dir_hc.GoogleDisk1)-1):
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} &&"
+			if(i==len(dir_hc.GoogleDisk1)-1):
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk2_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей zip"""
 		command=""
 		for li in dir_hc.GoogleDisk2:
-			command+=f"{li}.zip -d {dir_hc.DirHomeDicts}\n"
+			if(i<len(dir_hc.GoogleDisk2)-1):
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} &&"
+			if(i==len(dir_hc.GoogleDisk2)-1):
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk3_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Третий Пакета Словарей zip"""
 		command=""
 		for li in dir_hc.GoogleDisk3:
-			command+=f"{li}.zip -d {dir_hc.DirHomeDicts}\n"
+			if(i<len(dir_hc.GoogleDisk3)-1):
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} &&"
+			if(i==len(dir_hc.GoogleDisk3)-1):
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
 	def CreatDir(dirnew):
 		"""Создать Директорию"""
