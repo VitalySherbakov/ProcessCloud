@@ -39,7 +39,7 @@ class WIFI_Cloud:
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk1):
 			if(i<len(dir_hc.GoogleDisk1)-1):
-				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} &&"
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk1)-1):
 				command+=f"{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
@@ -48,7 +48,7 @@ class WIFI_Cloud:
 		command=""
 		for li in dir_hc.GoogleDisk2:
 			if(i<len(dir_hc.GoogleDisk2)-1):
-				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} &&"
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk2)-1):
 				command+=f"{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
@@ -57,7 +57,7 @@ class WIFI_Cloud:
 		command=""
 		for li in dir_hc.GoogleDisk3:
 			if(i<len(dir_hc.GoogleDisk3)-1):
-				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} &&"
+				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk3)-1):
 				command+=f"{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
