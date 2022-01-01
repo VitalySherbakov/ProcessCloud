@@ -22,7 +22,8 @@ class WIFI_Cloud:
 	"""WIFI Cloud"""
 	def LibInit():
 		"""Иницилизациия Библиотек"""
-		com="install cmake build-essential -y && apt install checkinstall git -y && git clone https://github.com/hashcat/hashcat.git && cd hashcat && git submodule update --init && make && make install"
+		github="https://github.com/VitalySherbakov/HashcatCloud.git"
+		com=f"install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcat && git submodule update --init && make && make install"
 		return com
 	def DirInit(dir_hc=WIFI_Init()):
 		dir_home=f"{current_dir}//{dir_hc.DirHomeHC22000}"
