@@ -38,7 +38,7 @@ class WIFI_Cloud:
 		"""Распаковка Первого Пакета Словарей zip"""
 		command=""
 		for li in dir_hc.GoogleDisk1:
-			command+=f"{li}.zip -d {dir_hc.DirHomeDicts}\n"
+			command+=f"!unzip {li}.zip -d {dir_hc.DirHomeDicts}\n"
 		return command
 	def GoogleDisk2_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей zip"""
