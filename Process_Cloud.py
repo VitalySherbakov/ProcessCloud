@@ -23,7 +23,7 @@ class WIFI_Cloud:
 	def LibInit():
 		"""Иницилизациия Библиотек"""
 		github="https://github.com/VitalySherbakov/HashcatCloud.git"
-		com=f"install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcat && git submodule update --init && make && make install"
+		com=f"install cmake build-essential -y && apt install checkinstall git -y && git clone {github} && cd hashcatcloud && git submodule update --init && make && make install"
 		return com
 	def DirInit(dir_hc=WIFI_Init()):
 		"""Иницилизация создание необходимых директорий"""
@@ -139,7 +139,7 @@ class WIFI_Cloud:
 					print(f"Папка Сеть WIFI: {dir_wifi}")
 					print(f"Файл WIFI: {selectfilespath}")
 					input(f"Запустить Процес........................")
-					return f"-m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {one_string_dicts}"
+					return f"hashcat -m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {one_string_dicts}"
 				if(index_etap_select==2):
 					pod_etap_select=input("Выбрать 1-3 Этапов: ")
 					index_pod_etap_select=int(pod_etap_select)
