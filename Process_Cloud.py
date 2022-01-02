@@ -222,7 +222,7 @@ class WIFI_Cloud:
 					print(f"Папка Сеть WIFI: {dir_wifi}")
 					print(f"Файл WIFI: {selectfilespath}")
 					for i3,li3 in enumerate(dir_hc.DictsProces):
-						print(f"Номер {i3+1} | Этап {li3}")
+						print(f"Номер {i3+1} Этапа | {li3}")
 					pod_etap_select2=input(f"Выбрать 1-{len(dir_hc.DictsProces)} Этапов: ")
 					index_pod_etap_select2=int(pod_etap_select2)
 					if (index_pod_etap_select2<len(dir_hc.DictsProces)):
