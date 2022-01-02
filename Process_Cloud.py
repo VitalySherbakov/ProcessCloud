@@ -7,16 +7,24 @@ current_dir = current_dir.replace("\\","//")
 class WIFI_Init:
 	DirHomeHC22000=""
 	DirHomeDicts=""
-	DirWIFI=[],
-	Speed=1,
-	GoogleDisk1=[],
-	GoogleDisk2=[],
-	GoogleDisk3=[],
+	DirWIFI=[]
+	Speed=1
+	GoogleDisk1=[]
+	GoogleDisk2=[]
+	GoogleDisk3=[]
 	DictsProces=[]
 
 class WIFI_Three:
-	One=7,
+	One=7
 	Two=12
+
+class WIFI_MASK:
+	FileHC22000=""
+	Mask="?a?a?a?a?a?a?a?a"
+	Speed=1
+	Minimum=8
+	Maximum=12
+	FlagMinMax=False
 
 class WIFI_Cloud:
 	"""WIFI Cloud"""
@@ -83,6 +91,12 @@ class WIFI_Cloud:
 	def RunProcessRAR(filehash,mask,speed=1):
 		"""Запуск на поиск пароля RAR !hashcat"""
 		return f"-w {speed} -m 13000 -a3 {filehash} {mask}"
+	def RunProcessMask(wifihc=WIFI_MASK()):
+		"""Запуск Процеса Перебора WIFI с Маской !hashcat"""
+		if(wifihc.FlagMinMax):
+			return f"-m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} -i --increment-min={wifihc.Minimum} --increment-max={wifihc.Maximum} {wifihc.Mask}"
+		else:
+			return f"-m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} {wifihc.Mask}"
 	def RunProcess(dir_hc=WIFI_Init(),reng_two=WIFI_Three()):
 		"""Запуск Процеса Перебора WIFI !hashcat"""
 		#-------------------Иницилизация---------------------
