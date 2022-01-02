@@ -71,8 +71,20 @@ class WIFI_Cloud:
 		"""Создать Директорию"""
 		if os.path.exists(dirnew)==False:
 			os.mkdir(dirnew)
+	def GenerateHASH_ZIP(filehash, filename):
+		"""Генератор Хеша !cat"""
+		return f"{filehash} | grep -E -o '(\\$pkzip2\\$.*\\$/pkzip2\\$)|(\\$zip2\\$.*\\$/zip2\\$)' > {filename}.hash"
+	def GenerateHASH_RAR(filehash, filename):
+		"""Генератор Хеша !cat"""
+		return f"{filehash} | grep -E -o '(\\$RAR3\\$[^:]+)|(\\$rar5\\$.*)' > {filename}.hash"
+	def RunProcessZIP(filehash,mask,speed=1):
+		"""Запуск на поиск пароля ZIP !hashcat"""
+		return f"-w {speed} -m 13600 -a3 {filehash} {mask}"
+	def RunProcessRAR(filehash,mask,speed=1):
+		"""Запуск на поиск пароля RAR !hashcat"""
+		return f"-w {speed} -m 13000 -a3 {filehash} {mask}"
 	def RunProcess(dir_hc=WIFI_Init(),reng_two=WIFI_Three()):
-		"""Запуск Процеса Перебора WIFI"""
+		"""Запуск Процеса Перебора WIFI !hashcat"""
 		#-------------------Иницилизация---------------------
 		selectfilespath,dir_wifi,one_string_dicts="","",""
 		url_convert="https://hashcat.net/cap2hashcat/"
