@@ -140,6 +140,15 @@ class WIFI_Cloud:
 		for li in telin:
 			text+=f"{li}\n";
 		print(text)
+	def CreateProcessDict(filedict):
+		"""Создание Словаря"""
+		if(wifihc.FlagMinMax):
+			return f"--stdout -a3 -i --increment-min={wifihc.Minimum} --increment-max={wifihc.Maximum} {wifihc.Mask} > {filedict}"
+		else:
+			return f"--stdout -a3 {wifihc.Mask} > {filedict}"
+	def RunProcessMaskDict(filedict,wifihc=WIFI_MASK()):
+		"""Запуск Процеса Перебора WIFI по Созданому Словарю"""
+		return f"-m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} {filedict}"
 	def RunProcessMask(wifihc=WIFI_MASK()):
 		"""Запуск Процеса Перебора WIFI с Маской !hashcat"""
 		if(wifihc.FlagMinMax):
