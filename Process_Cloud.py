@@ -124,12 +124,27 @@ class WIFI_Cloud:
 	def RunProcessRAR(filehash,mask,speed=1):
 		"""Запуск на поиск пароля RAR !hashcat"""
 		return f"-w {speed} -m 13000 -a3 {filehash} {mask}"
+	def HelpMask():
+		text=""
+		telin=["? | Charset"
+		"===+=========",
+		"l | abcdefghijklmnopqrstuvwxyz [a-z]",
+		"u | ABCDEFGHIJKLMNOPQRSTUVWXYZ [A-Z]",
+		"d | 0123456789                 [0-9]",
+		"h | 0123456789abcdef           [0-9a-f]",
+		"H | 0123456789ABCDEF           [0-9A-F]",
+		"s |  !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+		"a | ?l?u?d?s",
+		"b | 0x00 - 0xff"]
+		for li in telin:
+			text+=f"{li}\n";
+		print(text)
 	def RunProcessMask(wifihc=WIFI_MASK()):
 		"""Запуск Процеса Перебора WIFI с Маской !hashcat"""
 		if(wifihc.FlagMinMax):
-			return f"-m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} -i --increment-min={wifihc.Minimum} --increment-max={wifihc.Maximum} {wifihc.Mask}"
+			f"--stdout -a3 -i --increment-min={wifihc.Minimum} --increment-max={wifihc.Maximum} {wifihc.Mask} > tmp.txt && hashcat -m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} tmp.txt && rm -rf tmp.txt"
 		else:
-			return f"-m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} {wifihc.Mask}"
+			f"--stdout -a3 {wifihc.Mask} > tmp.txt && hashcat -m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} tmp.txt && rm -rf tmp.txt"
 	def RunProcess(dir_hc=WIFI_Init(),reng_two=WIFI_Three()):
 		"""Запуск Процеса Перебора WIFI !hashcat"""
 		#-------------------Иницилизация---------------------
