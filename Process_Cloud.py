@@ -126,7 +126,7 @@ class WIFI_Cloud:
 		return f"-w {speed} -m 13000 -a3 {filehash} {mask}"
 	def HelpMask():
 		text=""
-		telin=["? | Charset"
+		telin=["? | Charset",
 		"===+=========",
 		"l | abcdefghijklmnopqrstuvwxyz [a-z]",
 		"u | ABCDEFGHIJKLMNOPQRSTUVWXYZ [A-Z]",
