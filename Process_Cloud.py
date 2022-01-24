@@ -156,6 +156,16 @@ class WIFI_Cloud:
 			return f"--stdout -a3 -i --increment-min={wifihc.Minimum} --increment-max={wifihc.Maximum} {wifihc.Mask} > tmp.txt && hashcat -m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} tmp.txt && rm -rf tmp.txt"
 		else:
 			return f"--stdout -a3 {wifihc.Mask} > tmp.txt && hashcat -m 22000 -a3 -w {wifihc.Speed} {wifihc.FileHC22000} tmp.txt && rm -rf tmp.txt"
+	def CatDirToDict(dir_cat, link_dicts):
+	 """Склеивание Путей Директори"""
+	 link_dicts_new=""
+	 mass=link_dicts.split(' ')
+	 for i,li in enumerate(mass):      
+	    if(i<len(mass)):
+		    link_dicts_new+=f"{dir_cat}/{li} "
+	    if(i==len(mass)):
+	      link_dicts_new+=f"{dir_cat}/{li}"
+	 return link_dicts_new
 	def RunProcess(dir_hc=WIFI_Init(),reng_two=WIFI_Three()):
 		"""Запуск Процеса Перебора WIFI !hashcat"""
 		#-------------------Иницилизация---------------------
@@ -178,22 +188,30 @@ class WIFI_Cloud:
 			            ""]
 			for i,di in enumerate(dir_hc.DictsProces):
 			  if(i<reng_two.One):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[0]+=f"{di} "
 			  if(i==reng_two.One):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[0]+=f"{di}"
 			  if(i>reng_two.One and i<reng_two.Two):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[1]+=f"{di} "
 			  if(i>reng_two.One and i==reng_two.Two):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[1]+=f"{di}"
 			  if(i>reng_two.Two and i<len(dir_hc.DictsProces)-1):
+			    di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[2]+=f"{di} "
 			  if(i==len(dir_hc.DictsProces)-1):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[2]+=f"{di}"
 			#-------Этапы Единий-----
 			for i,di in enumerate(dir_hc.DictsProces):
 			  if(i<len(dir_hc.DictsProces)-1):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    one_string_dicts+=f"{di} "
 			  if(i==len(dir_hc.DictsProces)-1):
+			  	di=CatDirToDict(dir_hc.DirHomeDicts,di)
 			    one_string_dicts+=f"{di}"
 			#----------------------------------------------------
 			indexspeed=dir_hc.Speed
@@ -255,7 +273,7 @@ class WIFI_Cloud:
 						for i2,li2 in enumerate(dir_hc.DictsProces):
 							if ((i2+1)==index_pod_etap_select2):
 								input(f"Запустить Этап ({index_pod_etap_select2}) Процес........................")
-								return f"-m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {dir_hc.DictsProces[i2]}"
+								return f"-m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {dir_hc.DirHomeDicts}/{dir_hc.DictsProces[i2]}"
 					else:
 						print(f"Вы выбрали {index_pod_etap_select2}, за границы доступности {len(dir_hc.DictsProces)}")
 			else:
