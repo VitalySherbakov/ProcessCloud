@@ -188,30 +188,30 @@ class WIFI_Cloud:
 			            ""]
 			for i,di in enumerate(dir_hc.DictsProces):
 			  if(i<reng_two.One):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[0]+=f"{di} "
 			  if(i==reng_two.One):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[0]+=f"{di}"
 			  if(i>reng_two.One and i<reng_two.Two):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[1]+=f"{di} "
 			  if(i>reng_two.One and i==reng_two.Two):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[1]+=f"{di}"
 			  if(i>reng_two.Two and i<len(dir_hc.DictsProces)-1):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[2]+=f"{di} "
 			  if(i==len(dir_hc.DictsProces)-1):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    three_mass[2]+=f"{di}"
 			#-------Этапы Единий-----
 			for i,di in enumerate(dir_hc.DictsProces):
 			  if(i<len(dir_hc.DictsProces)-1):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    one_string_dicts+=f"{di} "
 			  if(i==len(dir_hc.DictsProces)-1):
-			    di=self.CatDirToDict(dir_hc.DirHomeDicts,di)
+			    di=WIFI_Cloud.CatDirToDict(dir_hc.DirHomeDicts,di)
 			    one_string_dicts+=f"{di}"
 			#----------------------------------------------------
 			indexspeed=dir_hc.Speed
