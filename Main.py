@@ -5,6 +5,7 @@ import os
 test = WIFI_Init()
 test.DirHomeHC22000="Caps"
 test.DirHomeDicts="Dicts"
+test.DirGoogleDisk=""
 test.DirWIFI=["Wifi1","Wifi2","Wifi3","Wifi4"]
 test.GoogleDisk1=["GoogleDisk/Oup/Dicts/Wps1",
 "GoogleDisk/Oup/Dicts/Wps2","GoogleDisk/Oup/Dicts/Wps3"]

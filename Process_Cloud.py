@@ -7,6 +7,7 @@ current_dir = current_dir.replace("\\","//")
 class WIFI_Init:
 	DirHomeHC22000=""
 	DirHomeDicts=""
+	DirGoogleDisk=""
 	DirWIFI=[]
 	Speed=1
 	GoogleDisk1=[]
@@ -47,66 +48,66 @@ class WIFI_Cloud:
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk1):
 			if(i==0):
-				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
+				command+=f"{dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i>0 and i<len(dir_hc.GoogleDisk1)-1):
-				command+=f"unzip {li}.zip -d {dir_hc.DirHomeDicts} && "
+				command+=f"unzip {dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk1)-1):
-				command+=f"unzip {li}.zip -d {dir_hc.DirHomeDicts}"
+				command+=f"unzip {dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk2_ZIP_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей zip"""
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk2):
 			if(i==0):
-				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
+				command+=f"{dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i>0 and i<len(dir_hc.GoogleDisk2)-1):
-				command+=f"unzip {li}.zip -d {dir_hc.DirHomeDicts} && "
+				command+=f"unzip {dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk2)-1):
-				command+=f"unzip {li}.zip -d {dir_hc.DirHomeDicts}"
+				command+=f"unzip {dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk3_ZIP_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Третий Пакета Словарей zip"""
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk3):
 			if(i==0):
-				command+=f"{li}.zip -d {dir_hc.DirHomeDicts} && "
+				command+=f"{dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i>0 and i<len(dir_hc.GoogleDisk3)-1):
-				command+=f"unzip {li}.zip -d {dir_hc.DirHomeDicts} && "
+				command+=f"unzip {dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk3)-1):
-				command+=f"unzip {li}.zip -d {dir_hc.DirHomeDicts}"
+				command+=f"unzip {dir_hc.DirGoogleDisk}/{li}.zip -d {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk1_RAR_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Первого Пакета Словарей rar"""
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk1):
 			if(i==0):
-				command+=f"{li}.rar x {dir_hc.DirHomeDicts} && "
+				command+=f"{dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts} && "
 			if(i>0 and i<len(dir_hc.GoogleDisk1)-1):
-				command+=f"unrar {li}.rar x {dir_hc.DirHomeDicts} && "
+				command+=f"unrar {dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk1)-1):
-				command+=f"unrar {li}.rar x {dir_hc.DirHomeDicts}"
+				command+=f"unrar {dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk2_RAR_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Второй Пакета Словарей rar"""
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk2):
 			if(i==0):
-				command+=f"{li}.rar x {dir_hc.DirHomeDicts} && "
+				command+=f"{dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts} && "
 			if(i>0 and i<len(dir_hc.GoogleDisk2)-1):
-				command+=f"unrar {li}.rar x {dir_hc.DirHomeDicts} && "
+				command+=f"unrar {dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk2)-1):
-				command+=f"unrar {li}.rar x {dir_hc.DirHomeDicts}"
+				command+=f"unrar {dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts}"
 		return command
 	def GoogleDisk3_RAR_Extract(dir_hc=WIFI_Init()):
 		"""Распаковка Третий Пакета Словарей rar"""
 		command=""
 		for i,li in enumerate(dir_hc.GoogleDisk3):
 			if(i==0):
-				command+=f"{li}.rar x {dir_hc.DirHomeDicts} && "
+				command+=f"{dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts} && "
 			if(i>0 and i<len(dir_hc.GoogleDisk3)-1):
-				command+=f"unrar {li}.rar x {dir_hc.DirHomeDicts} && "
+				command+=f"unrar {dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts} && "
 			if(i==len(dir_hc.GoogleDisk3)-1):
-				command+=f"unrar {li}.rar x {dir_hc.DirHomeDicts}"
+				command+=f"unrar {dir_hc.DirGoogleDisk}/{li}.rar x {dir_hc.DirHomeDicts}"
 		return command
 	def CreatDir(dirnew):
 		"""Создать Директорию"""
