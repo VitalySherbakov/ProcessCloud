@@ -178,23 +178,23 @@ class WIFI_Cloud:
 			            ""]
 			for i,di in enumerate(dir_hc.DictsProces):
 			  if(i<reng_two.One):
-			    three_mass[0]+=f"{dir_hc.DirHomeDicts}/{di} "
+			    three_mass[0]+=f"{di} "
 			  if(i==reng_two.One):
-			    three_mass[0]+=f"{dir_hc.DirHomeDicts}/{di}"
+			    three_mass[0]+=f"{di}"
 			  if(i>reng_two.One and i<reng_two.Two):
-			    three_mass[1]+=f"{dir_hc.DirHomeDicts}/{di} "
+			    three_mass[1]+=f"{di} "
 			  if(i>reng_two.One and i==reng_two.Two):
-			    three_mass[1]+=f"{dir_hc.DirHomeDicts}/{di}"
+			    three_mass[1]+=f"{di}"
 			  if(i>reng_two.Two and i<len(dir_hc.DictsProces)-1):
-			    three_mass[2]+=f"{dir_hc.DirHomeDicts}/{di} "
+			    three_mass[2]+=f"{di} "
 			  if(i==len(dir_hc.DictsProces)-1):
-			    three_mass[2]+=f"{dir_hc.DirHomeDicts}/{di}"
+			    three_mass[2]+=f"{di}"
 			#-------Этапы Единий-----
 			for i,di in enumerate(dir_hc.DictsProces):
 			  if(i<len(dir_hc.DictsProces)-1):
-			    one_string_dicts+=f"{dir_hc.DirHomeDicts}/{di} "
+			    one_string_dicts+=f"{di} "
 			  if(i==len(dir_hc.DictsProces)-1):
-			    one_string_dicts+=f"{dir_hc.DirHomeDicts}/{di}"
+			    one_string_dicts+=f"{di}"
 			#----------------------------------------------------
 			indexspeed=dir_hc.Speed
 			if (indexspeed>3):
@@ -255,7 +255,7 @@ class WIFI_Cloud:
 						for i2,li2 in enumerate(dir_hc.DictsProces):
 							if ((i2+1)==index_pod_etap_select2):
 								input(f"Запустить Этап ({index_pod_etap_select2}) Процес........................")
-								return f"-m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {dir_hc.DirHomeDicts}/{dir_hc.DictsProces[i2]}"
+								return f"-m 22000 -a 0 -w {dir_hc.Speed} {selectfilespath} {dir_hc.DictsProces[i2]}"
 					else:
 						print(f"Вы выбрали {index_pod_etap_select2}, за границы доступности {len(dir_hc.DictsProces)}")
 			else:
